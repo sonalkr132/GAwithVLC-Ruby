@@ -4,15 +4,14 @@ module GAwithVLC
   class Points
     attr_reader :ary, :dist
 
-    def initialize(number_of_points, points_range = nil)
+    def initialize(number_of_points)
       @number_of_points = number_of_points
-      @points_range = points_range
     end
 
-    def gen_random_points
+    def gen_random_points(points_range)
       @ary = []
       @number_of_points.times do
-        @ary << [rand(@points_range), rand(@points_range)]
+        @ary << [rand(points_range), rand(points_range)]
       end
 
       puts "points are: #{ary}"
@@ -20,17 +19,17 @@ module GAwithVLC
 
     def calc_distances
       @dist = []
-      (0..@number_of_points-1).each do |i|
+      (0..@number_of_points - 1).each do |i|
         @dist[i] = []
-        (0..@number_of_points-1).each do |j|
+        (0..@number_of_points - 1).each do |j|
           @dist[i][j] = distance_between(ary[i], ary[j])
         end
       end
     end
 
     def load_from_yaml(file)
-      yml_data = YAML::load_file(File.expand_path(File.join(__dir__, '../data/array.yml')))
-      @ary = yml_data["#{file}"]
+      yml_data = YAML.load_file(File.expand_path(File.join(__dir__, '../data/array.yml')))
+      @ary = yml_data[file.to_s]
     end
 
     private
