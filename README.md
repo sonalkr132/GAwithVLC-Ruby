@@ -1,6 +1,8 @@
 # GAwithVLC
 Genetic Algorithm with Variable Length Chromosomes
 
+[![Build Status](https://travis-ci.org/sonalkr132/GAwithVLC.svg?branch=master)](https://travis-ci.org/sonalkr132/GAwithVLC)
+
 ## Take it for a spin
 
 ### install ruby(using rvm)
@@ -12,7 +14,7 @@ $ \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 $ pwd
 /home/user/GAwithVLC
-$ ruby lib/GAwithVLC.rb
+$ ruby lib/ga_with_vlc.rb
 ```
 
 ## Thanks to

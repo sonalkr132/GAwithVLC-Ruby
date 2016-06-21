@@ -3,4 +3,6 @@ sudo: false
 cache: bundler
 rvm:
   - 2.3.1
-script: bundle exec rspec
+script:
+  - bundle exec rubocop
+  - bundle exec rspec
