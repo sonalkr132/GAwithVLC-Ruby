@@ -8,6 +8,8 @@ module GAwithVLC
       @genes = genes_ary.shuffle
     end
 
+    # evaluats the total sum of distances between the genes/points of the chromosome
+    # @params dist 2D array of distance between all the points
     def evaluate(dist)
       sum = dist[genes[0]][genes[size - 1]]
       (1..size - 1).each do |idx|

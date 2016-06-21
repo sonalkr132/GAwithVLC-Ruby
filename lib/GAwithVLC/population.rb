@@ -16,18 +16,24 @@ module GAwithVLC
       @chromosomes = []
     end
 
-    def set_random_points(points_range)
+    # Generates @points_size number of random points in given range
+    # @params points_range maximum number upto which random numbers will be gen
+    def random_points(points_range)
       @points = GAwithVLC::Points.new(@points_size)
       points.gen_random_points(points_range)
       points.calc_distances
     end
 
+    # Loads fixed points from the file data/array.yml
+    # @params elements_type can be on the tags used in yml file
     def load_points(elements_type)
       @points = GAwithVLC::Points.new(@points_size)
       points.load_from_yaml(elements_type)
       points.calc_distances
     end
 
+    # Intializes chromosomes with random chromosomes
+    # also set the best scores array, best_score and best chromosome for current gen
     def initialize_population
       @population_size.times do
         chromosome = GAwithVLC::Chromosome.new(@points_size)
