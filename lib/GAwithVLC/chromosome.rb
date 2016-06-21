@@ -17,5 +17,34 @@ module GAwithVLC
       end
       sum
     end
+
+    def inversion_mutation
+      loop do
+        m = rand(size - 2)
+        n = rand(size)
+        break unless m >= n
+      end
+
+      j = ((n - m + 1) >> 1) - 1
+      (0..j).each do |i|
+        @genes[m + i], @genes[n - i] = @genes[n - i], @genes[m + i]
+      end
+      self
+    end
+
+    def swap_mutation
+      loop do
+        m = rand(size >> 1)
+        n = rand(size)
+        break unless m >= n
+      end
+
+      c1 = genes[0..m]
+      c2 = genes[m..n]
+      c3 = genes[n..size - 1]
+
+      @genes = c2 + c1 + c3
+      self
+    end
   end
 end
