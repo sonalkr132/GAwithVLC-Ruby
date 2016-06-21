@@ -16,9 +16,15 @@ module GAwithVLC
       @chromosomes = []
     end
 
-    def load_points
+    def set_random_points(points_range)
       @points = GAwithVLC::Points.new(@points_size)
-      points.load_from_yaml('20_elements')
+      points.gen_random_points(points_range)
+      points.calc_distances
+    end
+
+    def load_points(elements_type)
+      @points = GAwithVLC::Points.new(@points_size)
+      points.load_from_yaml(elements_type)
       points.calc_distances
     end
 

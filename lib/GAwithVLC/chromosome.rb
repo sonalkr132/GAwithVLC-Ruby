@@ -10,7 +10,6 @@ module GAwithVLC
 
     def evaluate(dist)
       sum = dist[genes[0]][genes[size - 1]]
-
       (1..size - 1).each do |idx|
         sum += dist[genes[idx]][genes[idx - 1]]
       end
